@@ -75,3 +75,21 @@ class Solution(object):
             fast_pointer = fast_pointer.next.next\
         
         return slow_pointer
+
+# 13
+class Solution(object):
+    def romanToInt(self, s):
+        convertion_table = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        summation = 0
+''' Converting the strings per character into numbers and adding them to the summation variable. range function use to make
+sure that the function does not run out of indexes'''
+        
+        for i in range(len(s)- 1):
+            if convertion_table[s[i]] >= convertion_table[s[i+1]]:
+                summation += convertion_table[s[i]]
+            else:
+                summation -= convertion_table[s[i]]
+
+''' To get to the right number the last number needs to be added due to the range function in the for loop'''        
+        summation += convertion_table[s[-1]]
+        return summation
