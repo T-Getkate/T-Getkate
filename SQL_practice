@@ -18,3 +18,22 @@ Code:
 SELECT A.name as Employee FROM Employee A, Employee B
 WHERE A.managerId = B.id 
 AND A.salary > B.salary
+
+#182
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| email       | varchar |
++-------------+---------+
+id is the primary key (column with unique values) for this table.
+Each row of this table contains an email. The emails will not contain uppercase letters.
+ 
+
+Write a solution to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL
+
+
+Code:
+SELECT email FROM Person
+group by email
+HAVING COUNT(email) > 1;
