@@ -148,3 +148,13 @@ class Solution(object):
                 if i == val:
                     nums.remove(val)
 
+#28
+class Solution(object):
+    def strStr(self, haystack, needle):
+        if needle in haystack:
+            a = list(haystack)
+            b = list(needle)
+            return haystack.index(needle[0:len(needle)])
+        else:
+            return -1
+
