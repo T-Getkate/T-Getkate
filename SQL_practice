@@ -65,3 +65,10 @@ SET N=N-1;
      LIMIT 1 OFFSET N
   );
 END
+
+#196
+'''Write a solution to delete all duplicate emails, keeping only one unique email with the smallest id.'''
+# cross join to combine every mail in p1 with every mail in p2
+DELETE p1 FROM Person p1, Person p2
+#Filtering out the instances where the emails are the same, but where the id in 1 is greater than in 2 to remove the highest id instance.
+WHERE p1.email = p2.email AND p1.id > p2.id
