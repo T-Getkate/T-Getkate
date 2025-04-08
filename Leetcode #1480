@@ -161,3 +161,20 @@ class Solution(object):
         else:
             return -1
 
+Array 101
+# valid mountain array
+def validMountainArray(self, arr):
+
+        increasing = True
+        index = 1
+        
+        while index < len(arr):
+            if arr[index] == arr[index - 1]:
+                return False
+            if arr[index] < arr[index - 1] and increasing:
+                if index == 1: return False
+                increasing = False
+            if arr[index] > arr[index - 1] and not increasing:
+                return False
+            index += 1
+        return not increasing
